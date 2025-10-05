@@ -4,6 +4,9 @@ const app = express();
 const cors = require('cors');
 app.use(cors({ origin: '*' }));
 
+app.use('/dice_faces', express.static(__dirname + '/dice_faces'));
+
+
 app.get('/api/roll', (req, res) => {
   const values = [];
   const images = [];
