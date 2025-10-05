@@ -4,9 +4,10 @@ const app = express();
 const cors = require('cors');
 app.use(cors({ origin: '*' }));
 
+// Serve dice images
 app.use('/dice_faces', express.static(__dirname + '/dice_faces'));
 
-
+// Generate random numbers
 app.get('/api/roll', (req, res) => {
   const values = [];
   const images = [];
@@ -27,7 +28,7 @@ app.get('/api/roll', (req, res) => {
 // Root route for testing
 app.get('/', (req, res) => {
   res.send(`
-    <h2>Dice Roller API</h2>
+    <h1>Dice Roller API</h1>
     <p>Use <code>/api/roll</code> to roll 5 dice.</p>
     <p>Example: <a href="/api/roll" target="_blank">/api/roll</a></p>
   `);
