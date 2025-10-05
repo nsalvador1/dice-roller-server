@@ -4,8 +4,9 @@ const app = express();
 const cors = require('cors');
 app.use(cors({ origin: '*' }));
 
-// Serve dice images
+// Serve dice images and HTML file
 app.use('/dice_faces', express.static(__dirname + '/dice_faces'));
+app.use(express.static(__dirname + '/static'))
 
 // Generate random numbers
 app.get('/api/roll', (req, res) => {
